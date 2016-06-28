@@ -16,14 +16,18 @@ group :development, :test do
   gem 'rspec-rails', '3.2.3'
   gem 'spring-commands-rspec'
   gem 'guard-rspec', require: false
+  gem 'fabrication'
 
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'pry'
+  gem 'pry-nav'
 end
 
 group :test do
 	gem 'capybara', '2.4.4'
+	gem 'faker'
 end
