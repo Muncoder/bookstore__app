@@ -101,9 +101,42 @@ RSpec.describe AuthorsController, :type => :controller do
 		end
 
 		context "unsuccessful update" do
-			
+			let(:john) { Fabricate(:author, first_name: "John") }
+
+			it "does not update the author object with invalid inputs" do
+				put :update, author: Fabricate.attributes_for(:author, first_name: nil), id: john.id
+
+				expect(Author.last.first_name).to eq("John")
+			end
+
+			it "sets the failure flash message" do
+				put :update, author: Fabricate.attributes_for(:author, first_name: nil), id: john.id
+
+				expect(flash[:danger]).to eq("Author has not been updated")
+			end
+		end
+	end
+
+	describe "DELETE #destroy" do
+		let(:author) { Fabricate(:author) }
+
+		it "deletes the author with the given id" do
+			delete :destroy, id: author.id
+
+			expect(Author.count).to eq(0)
 		end
 
+		it "sets the flash message" do
+			delete :destroy, id: author.id
+
+			expect(flash[:success]).to eq("Author has been deleted")
+		end
+
+		it "redirects to the index action" do
+			delete :destroy, id: author.id
+
+			expect(response).to redirect_to authors_path
+		end
 	end
 
 end 
