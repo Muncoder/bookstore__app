@@ -20,7 +20,7 @@ class AuthorsController < ApplicationController
 
 			redirect_to @author
 		else
-			flash[:danger] = "Author could not be created"
+			flash[:danger] = "Author has not been created"
 			render :new
 		end
 	end
