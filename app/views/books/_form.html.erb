@@ -30,8 +30,6 @@
 		<%= f.text_field :published_at, class: "form-control" %>
 	</div>
 
-
-
 	<div id="form-group">
 		<%= label_tag 'publisher', 'Publisher' %>
 		<%= f.select :publisher_id, @publishers.map { |p| [p.name, p.id] },
@@ -39,12 +37,15 @@
 	</div>
 
 	<div id="form-group">
+		<%= f.label "Book Cover" %>
+		<%= f.file_field :book_cover, placeholder: 'Book Cover', class: 'form-control' %>
+	</div>
+
+	<div id="form-group">
 		<%= f.collection_check_boxes :author_ids, @authors, :id, :full_name, class: "form-control" %>
 	</div>
 
-
-
-<br>
+	<br>
 	<%= f.submit "Create Book", class: "btn btn-primary" %>
 
 <% end %>

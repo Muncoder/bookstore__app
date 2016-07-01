@@ -21,6 +21,8 @@ RSpec.feature "creating Books" do
 		# select "Peachpit Press", :from => 'publisher'
 		#select "Peachpit Press", from: "Publisher"
 
+		attach_file "Book Cover", "app/assets/images/face.jpg"
+
 		check author1.full_name
 		check author2.full_name
 

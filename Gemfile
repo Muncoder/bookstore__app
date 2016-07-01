@@ -15,7 +15,10 @@ gem 'bootstrap_form', '~> 2.3'
 
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem 'carrierwave-dropbox'
 
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug'
