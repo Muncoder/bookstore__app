@@ -20,6 +20,9 @@ gem 'carrierwave-dropbox'
 
 gem 'figaro'
 
+gem 'bcrypt'
+
+
 group :development, :test do
   gem 'byebug'
 
