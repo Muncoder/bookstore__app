@@ -11,6 +11,8 @@ class BooksController < ApplicationController
 
 	def new
 		@book = Book.new
+		@publishers = Publisher.all
+		@authors = Author.all
 	end
 
 	def create

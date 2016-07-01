@@ -1,0 +1,51 @@
+<%= form_for(@book) do |f| %>
+
+	<div id="form-group">
+		<%= f.label :title %>
+		<%= f.text_field :title, class: "form-control" %>
+	</div>
+
+	<div id="form-group">
+		<%= f.label :isbn %>
+		<%= f.text_field :isbn, class: "form-control" %>
+	</div>
+
+	<div id="form-group">
+		<%= f.label :page_count %>
+		<%= f.text_field :page_count, class: "form-control" %>
+	</div>
+
+	<div id="form-group">
+		<%= f.label :price %>
+		<%= f.text_field :price, class: "form-control" %>
+	</div>
+
+	<div id="form-group">
+		<%= f.label :description %>
+		<%= f.text_area :description, class: "form-control" %>
+	</div>
+
+	<div id="form-group">
+		<%= f.label :published_at %>
+		<%= f.text_field :published_at, class: "form-control" %>
+	</div>
+
+
+
+	<div id="form-group">
+		<%= label_tag 'publisher', 'Publisher' %>
+		<%= f.select :publisher_id, @publishers.map { |p| [p.name, p.id] },
+						prompt: 'Select a publisher', class: 'form-control' %>
+	</div>
+
+	<div id="form-group">
+		<%= f.collection_check_boxes :author_ids, @authors, :id, :full_name, class: "form-control" %>
+	</div>
+
+
+
+<br>
+	<%= f.submit "Create Book", class: "btn btn-primary" %>
+
+<% end %>
+<br>
