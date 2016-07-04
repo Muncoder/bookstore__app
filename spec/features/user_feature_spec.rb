@@ -10,7 +10,7 @@ RSpec.feature "Creating users" do
 		fill_in 'Last name', with: 'Doe'
 		fill_in 'Email', with: 'john@example.com'
 		fill_in 'Password', with: 'password'
-		fill_in 'Confirmation', with: 'password'
+		fill_in 'Password confirmation', with: 'password'
 		click_button 'Create User'
 
 		expect(page).to have_content('User has been created')
@@ -24,10 +24,10 @@ RSpec.feature "Creating users" do
 		fill_in 'Last name', with: ''
 		fill_in 'Email', with: 'john@example.com'
 		fill_in 'Password', with: 'password'
-		fill_in 'Confirmation', with: 'password'
+		fill_in 'Password confirmation', with: 'password'
 		click_button 'Create User'
 
-		expect(page).to have_content('User has been created')
+		expect(page).to have_content('User could not be saved')
 	end
 
 end

@@ -1,0 +1,19 @@
+<h1>User Sign In</h1>
+
+<%= form_tag '/signin' do %>
+	
+	<div id="form-group">
+		<label for="email"> Email Address: </label>
+		<%= text_field_tag 'email', "", class: 'form-control' %>
+	</div>
+
+	<div id="form-group">
+		<label for="password"> Password: </label>
+		<%= text_field_tag 'password', "", class: 'form-control' %>
+	</div>
+	
+	<br>
+	<%= submit_tag 'Sign in', class: "btn btn-success" %>
+
+
+<% end %>
