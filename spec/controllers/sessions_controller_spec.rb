@@ -20,11 +20,9 @@ RSpec.describe SessionsController, :type => :controller do
 				expect(response).to redirect_to root_path
 			end
 		end
-
 	end
 
 	describe "POST #create" do
-		
 		context "successful sign in" do
 			before do
 				post :create, { email: user.email, password: user.password }
@@ -52,5 +50,22 @@ RSpec.describe SessionsController, :type => :controller do
 
 		end
 	end
+
+	describe "DELETE #destroy" do
+		before do
+			session[:user_id] = user.id
+
+			delete :destroy, id: user.id
+		end
+
+		it "logs the user out" do
+			expect(session[:user_id]).to be_nil
+		end
+
+		it "redirects to the root path" do
+			expect(response).to redirect_to root_path
+		end
+	end
+
 
 end
